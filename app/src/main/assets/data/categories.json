@@ -1,0 +1,172 @@
+[
+    {
+        "category_id": "3",
+        "category_name": "Appreciation",
+        "id": 3
+    },
+    {
+        "category_id": "1",
+        "category_name": "Action",
+        "id": 4
+    },
+    {
+        "category_id": "2",
+        "category_name": "Accuracy",
+        "id": 5
+    },
+    {
+        "category_id": "4",
+        "category_name": "Attitude",
+        "id": 6
+    },
+    {
+        "category_id": "5",
+        "category_name": "Being Real",
+        "id": 7
+    },
+    {
+        "category_id": "6",
+        "category_name": "Business",
+        "id": 8
+    },
+    {
+        "category_id": "7",
+        "category_name": "Change",
+        "id": 9
+    },
+    {
+        "category_id": "8",
+        "category_name": "Confidence",
+        "id": 10
+    },
+    {
+        "category_id": "9",
+        "category_name": "Encouraging",
+        "id": 11
+    },
+    {
+        "category_id": "10",
+        "category_name": "Experience",
+        "id": 12
+    },
+    {
+        "category_id": "11",
+        "category_name": "Failure",
+        "id": 13
+    },
+    {
+        "category_id": "12",
+        "category_name": "Fake People",
+        "id": 14
+    },
+    {
+        "category_id": "13",
+        "category_name": "Fitness and Workout",
+        "id": 15
+    },
+    {
+        "category_id": "14",
+        "category_name": "Forgiveness",
+        "id": 16
+    },
+    {
+        "category_id": "15",
+        "category_name": "Smile",
+        "id": 17
+    },
+    {
+        "category_id": "16",
+        "category_name": "Give Up",
+        "id": 18
+    },
+    {
+        "category_id": "17",
+        "category_name": "Goal",
+        "id": 19
+    },
+    {
+        "category_id": "18",
+        "category_name": "Happiness",
+        "id": 20
+    },
+    {
+        "category_id": "19",
+        "category_name": "Hard Times",
+        "id": 21
+    },
+    {
+        "category_id": "20",
+        "category_name": "Hard Work",
+        "id": 22
+    },
+    {
+        "category_id": "21",
+        "category_name": "Life",
+        "id": 23
+    },
+    {
+        "category_id": "22",
+        "category_name": "Love",
+        "id": 24
+    },
+    {
+        "category_id": "23",
+        "category_name": "Mistake",
+        "id": 25
+    },
+    {
+        "category_id": "24",
+        "category_name": "People",
+        "id": 26
+    },
+    {
+        "category_id": "25",
+        "category_name": "Positive",
+        "id": 27
+    },
+    {
+        "category_id": "26",
+        "category_name": "Power",
+        "id": 28
+    },
+    {
+        "category_id": "27",
+        "category_name": "Short Quotes",
+        "id": 29
+    },
+    {
+        "category_id": "28",
+        "category_name": "Time",
+        "id": 30
+    },
+    {
+        "category_id": "29",
+        "category_name": "Wisdom",
+        "id": 31
+    },
+    {
+        "category_id": "30",
+        "category_name": "Yourself",
+        "id": 32
+    },
+    {
+        "category_id": "31",
+        "category_name": "Stay Strong",
+        "id": 33
+    },
+    {
+        "category_id": "32",
+        "category_name": "Keep Trying",
+        "id": 35
+    },
+    {
+        "category_id": "33",
+        "category_name": "Present Future Past",
+        "id": 36
+    },
+    {
+        "category_id": "34",
+        "category_name": "Proverbs",
+        "id": 37
+    }
+]

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">@android:color/white</color>
+
+    <color name="color_primary">#009688</color>
+    <color name="color_on_primary">@color/white</color>
+    <color name="color_primary_dark">#00675b</color>
+
+    <color name="background">@color/white</color> <!--#fff-->
+
+    <color name="main_primary">@color/white</color>
+    <color name="main_on_primary">@color/black</color>
+    <color name="main_status">#FFFFFF</color>
+
+    <!--  <color name="colorRecyclerViewBg">#f1f1f1</color> -->
+
+    <color name="nav_drawer_menu_icon_tint">#656565</color>
+    <color name="nav_drawer_background">@color/color_primary</color>
+
+    <color name="colorRecyclerViewBg">@color/background</color>
+    <color name="colorButtonLayout">#dcdbda</color>
+
+    <color name="view_pager_button_background">@color/color_primary</color>
+    <color name="view_pager_icon">@color/white</color>
+
+    <color name="quote_card_top_section">#EFEFEF</color>
+
+    <color name="random_category_quote_color">#919191</color>
+    <color name="category_color">@color/black</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>

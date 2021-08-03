@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Lessons In Life</string>
+
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    <string name="share_button">share</string>
+    <string name="copy_button">copy</string>
+    <string name="change_font">Change font</string>
+    <string name="change_background">Change background</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="background_image">Background image</string>
+    <string name="favorites">Favorites</string>
+    <string name="communicate">Communicate</string>
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="more_apps">More Apps</string>
+
+    <string name="app_share_message">"Hi! Take a look at this amazing app Lessons In Life. Its free!! You should get it too."</string>
+    <string name="remove_from_bookmarks">Remove from bookmarks</string>
+    <string name="company_email">sarftecsolutions111@gmail.com</string>
+    <string name="developer_indentification">Developed by Sarftec</string>
+    <string name="setting_up">Preparing Lessons</string>
+
+    <string name="appodeal_id">9c6e90ba3bdf280e8c88ed177c58860121426740fe0c8235</string>
+</resources>
