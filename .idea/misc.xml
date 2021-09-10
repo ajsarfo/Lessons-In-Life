@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_share.xml" value="0.24861111111111112" />
+        <entry key="app/src/main/res/drawable/transparent_dark_layer.xml" value="0.24861111111111112" />
+        <entry key="app/src/main/res/layout/activity_quote_list.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/layout_quote_list.xml" value="0.23233695652173914" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

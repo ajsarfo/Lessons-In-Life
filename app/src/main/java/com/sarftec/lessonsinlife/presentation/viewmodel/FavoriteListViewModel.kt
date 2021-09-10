@@ -32,7 +32,6 @@ class FavoriteListViewModel @Inject constructor(
             val pairs = BaseActivity.modifiedQuoteList.entries
             _quotes.value?.let { quotes ->
                 pairs.forEach {
-                    Log.v("TAG", "removing ${quotes[it.key]}")
                     quoteRepository.updateFavorite(quotes[it.key].id, it.value)
                 }
             }

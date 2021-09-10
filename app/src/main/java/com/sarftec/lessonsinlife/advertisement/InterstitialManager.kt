@@ -1,13 +1,13 @@
 package com.sarftec.lessonsinlife.advertisement
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
 import com.appodeal.ads.Appodeal
 import com.appodeal.ads.InterstitialCallbacks
 import com.sarftec.lessonsinlife.manager.NetworkManager
 
 
 class InterstitialManager(
-    private val activity: AppCompatActivity,
+    private val activity: Activity,
     private val networkManager: NetworkManager,
     pattern: List<Int>
 ) {

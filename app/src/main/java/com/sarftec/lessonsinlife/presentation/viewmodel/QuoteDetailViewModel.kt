@@ -98,6 +98,7 @@ class QuoteDetailViewModel @Inject constructor(
     }
 
     companion object {
+        const val PARCEL = "parcel"
         const val CURRENT_INDEX = "detail_current_index"
     }
 }

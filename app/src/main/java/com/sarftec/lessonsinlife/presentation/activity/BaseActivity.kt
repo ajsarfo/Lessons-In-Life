@@ -9,8 +9,8 @@ import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.sarftec.lessonsinlife.R
-import com.sarftec.lessonsinlife.store.ImageStore
 import com.sarftec.lessonsinlife.manager.NetworkManager
+import com.sarftec.lessonsinlife.store.ImageStore
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -40,21 +40,6 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onBackPressed()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
-
-   /*
-    protected fun setStatusBarBackgroundLight() {
-        when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
-                window.decorView.windowInsetsController?.setSystemBarsAppearance(
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                )
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> window.decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
-    }
-    */
 
     protected fun setStatusBarBackgroundLight() {
         fun dayMode() {
