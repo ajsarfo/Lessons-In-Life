@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -25,6 +27,7 @@ import com.sarftec.lessonsinlife.presentation.viewmodel.MainViewModel
 import com.sarftec.lessonsinlife.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -84,6 +87,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /************Appodeal Configuration*************/
+        Appodeal.setTesting(true)
         Appodeal.setBannerViewId(R.id.main_banner)
         Appodeal.initialize(
             this,
@@ -117,10 +121,11 @@ class MainActivity : BaseActivity() {
             loadingScreen.dismiss()
             listAdapter.submit(it)
         }
-        with(AppReviewManager(this@MainActivity)) {
-            init()
-            lifecycleScope.launchWhenCreated {
-                triggerReview()
+        lifecycleScope.launchWhenCreated {
+            configureNavSettings()
+           with(AppReviewManager(this@MainActivity)){
+               init()
+               triggerReview()
             }
         }
     }
@@ -141,7 +146,25 @@ class MainActivity : BaseActivity() {
         } else finish()
     }
 
-    fun setupNavigationView() {
+    private suspend fun configureNavSettings() {
+        binding.navView.menu.findItem(R.id.dark_mode)?.let {
+            (it.actionView as SwitchCompat).apply {
+                isChecked = readSettings(IS_DARK_MODE, false).first()
+                setOnCheckedChangeListener { _, isChecked ->
+                    lifecycleScope.launch {
+                        editSettings(IS_DARK_MODE, isChecked)
+                        AppCompatDelegate.setDefaultNightMode(
+                            if (isChecked) AppCompatDelegate.MODE_NIGHT_YES
+                            else AppCompatDelegate.MODE_NIGHT_NO
+                        )
+                        recreate()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupNavigationView() {
         fun onDrawerCallback(callback: () -> Unit) {
             vibrate()
             drawerCallback = callback
@@ -197,7 +220,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    fun setupNavigationDrawer() {
+    private fun setupNavigationDrawer() {
         binding.navDrawer.addDrawerListener(toggle)
         toggle.setHomeAsUpIndicator(R.drawable.ic_menu)
         toggle.syncState()

@@ -21,5 +21,25 @@
     <string name="developer_indentification">Developed by Sarftec</string>
     <string name="setting_up">Preparing Lessons</string>
 
-    <string name="appodeal_id">9c6e90ba3bdf280e8c88ed177c58860121426740fe0c8235</string>
+    <string name="appodeal_id">9c6e90ba3bdf280e8c88ed177c58860121426740fe0c8235</string>\
+
+    <string name="reader_alignment">Alignment</string>
+    <string name="reader_background">Background</string>
+    <string name="reader_text_size">Text size</string>
+    <string name="reader_theme">Text color</string>
+    <string name="reader_font">Font style</string>
+    <string name="reader_bg_opacity">Opacity</string>
+    <string name="reader_opacity">Opacity</string>
+
+    <dimen name="detail_panel_background_icon_size">22dp</dimen>
+    <dimen name="detail_panel_background_icon_margin">16dp</dimen>
+    <dimen name="icon_detail_edit_size">26dp</dimen>
+    <dimen name="icon_detail_lower_saving_size">26dp</dimen>
+    <dimen name="icon_detail_lower_normal_size">26dp</dimen>
+    <dimen name="icon_detail_lower_normal_margin_right">16dp</dimen>
+    <dimen name="icon_detail_lower_margin_left">18dp</dimen>
+    <dimen name="layout_detail_lower_height">60dp</dimen>
+    <dimen name="icon_detail_lower_margin_right">18dp</dimen>
+    <dimen name="detail_image_item_size">100dp</dimen>
+
 </resources>

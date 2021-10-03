@@ -3,16 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/ic_home" />
+    <group>
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/ic_home" />
 
-    <item
-        android:id="@+id/favorites"
-        android:title="@string/favorites"
-        android:icon="@drawable/ic_love_filled" />
+        <item
+            android:id="@+id/favorites"
+            android:title="@string/favorites"
+            android:icon="@drawable/ic_love_filled" />
+    </group>
 
+    <item android:title="Settings">
+        <menu>
+            <item android:title="Dark Mode"
+                android:id="@+id/dark_mode"
+                android:icon="@drawable/ic_night_mode"
+                app:actionViewClass="androidx.appcompat.widget.SwitchCompat"/>
+        </menu>
+    </item>
     <item android:title="@string/communicate">
         <menu>
             <item

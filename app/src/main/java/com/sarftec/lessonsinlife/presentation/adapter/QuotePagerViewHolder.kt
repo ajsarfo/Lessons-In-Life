@@ -1,38 +1,41 @@
 package com.sarftec.lessonsinlife.presentation.adapter
 
+import android.graphics.Paint
 import android.graphics.Typeface
+import android.view.Gravity
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lessonsinlife.database.model.Quote
 import com.sarftec.lessonsinlife.databinding.LayoutPagerViewBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.launch
+import com.sarftec.lessonsinlife.presentation.viewmodel.PanelState
+import com.sarftec.lessonsinlife.presentation.viewmodel.QuoteAlignment
 
 class QuotePagerViewHolder(
     private val layoutBinding: LayoutPagerViewBinding,
-    private val coroutineScope: CoroutineScope,
-    private val fontFlow: StateFlow<Typeface?>
-) : RecyclerView.ViewHolder(layoutBinding.root) {
+    private val onClick: () -> Unit
+) : RecyclerView.ViewHolder(layoutBinding.root), QuotePagerAdapter.PagerHolderListener {
 
-    private var job: Job? = null
-
-
-    fun subscribe() {
-        job = coroutineScope.launch {
-            fontFlow.filterNotNull().collect {
-                layoutBinding.pagerText.typeface = it
-            }
+    init {
+        layoutBinding.clickView.setOnClickListener {
+            onClick()
         }
     }
-
-    fun unsubscribe() {
-        job?.cancel()
-    }
-
     fun bind(quote: Quote) {
         layoutBinding.pagerText.text = quote.message
+    }
+
+    override fun notifyPanelStateChanged(state: PanelState) {
+        with(layoutBinding.pagerText) {
+            setTextColor(state.color)
+            if(state.size != -1f) textSize = state.size
+            if(state.fontLocation.isNotEmpty()) typeface = Typeface.createFromAsset(itemView.context.assets, state.fontLocation)
+            gravity = when(state.alignment) {
+                QuoteAlignment.END -> Gravity.END
+                QuoteAlignment.START ->  Gravity.START
+                QuoteAlignment.CENTER -> Gravity.CENTER
+            }
+            isAllCaps = state.isAllCaps
+            paintFlags = if (state.isUnderlined) Paint.UNDERLINE_TEXT_FLAG
+            else paintFlags and Paint.UNDERLINE_TEXT_FLAG.inv()
+        }
     }
 }

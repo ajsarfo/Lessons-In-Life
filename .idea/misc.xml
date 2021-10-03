@@ -3,6 +3,48 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/detail_bottom_icons_bg.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/drawable_ripple.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/font_card_shape.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_apply.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_baseline_brightness_high_24.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_baseline_brightness_low_24.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_bg_color.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_bg_gallery.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_bg_img_list.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_color_card_check.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_download.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_love_borderless.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_love_filled.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_menu.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_text_font.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_textalign_center.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_textalign_left.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_textalign_right.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_textalign_underline.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ic_view.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/menu_rate_icon.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/preview_download.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/preview_share.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ripple.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/ripple_circle.xml" value="1.7821428571428573" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/set_background.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/shape_read_font_a1.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/shape_read_font_a2.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_main.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_preview.xml" value="0.33" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_quote_detail.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_quote_list.xml" value="0.21422101449275363" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_color_card.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_detail_bottom.xml" value="0.33" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_detail_image.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_detail_image_dialog.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_font_card.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_pager_view.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_quote_list.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_text_panel.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/menu/main_menu.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/menu/menu_drop_down.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_share.xml" value="0.24861111111111112" />
         <entry key="app/src/main/res/drawable/transparent_dark_layer.xml" value="0.24861111111111112" />
         <entry key="app/src/main/res/layout/activity_quote_list.xml" value="0.23233695652173914" />

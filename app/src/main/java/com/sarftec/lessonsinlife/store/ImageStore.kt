@@ -2,11 +2,13 @@ package com.sarftec.lessonsinlife.store
 
 import android.content.Context
 import android.net.Uri
+import coil.ImageLoader
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.*
 import javax.inject.Inject
+import javax.inject.Singleton
 
-
+@Singleton
 class ImageStore @Inject constructor(
     @ApplicationContext private val context: Context
 ){
@@ -22,6 +24,8 @@ class ImageStore @Inject constructor(
         .list(BACKGROUND_FOLDER)!!
         .toHashSet()
 
+    val imageLoader = ImageLoader(context)
+
     fun getNavDrawerImage() : Uri {
         return Uri.parse("file:///android_asset/navigation/drawer_image.jpg")
     }
@@ -31,6 +35,12 @@ class ImageStore @Inject constructor(
         return categoryImages.firstOrNull { it.startsWith(converted) }
             ?.toUri(CATEGORY_FOLDER)
             ?: "default.jpg".toUri(CATEGORY_FOLDER)
+    }
+
+    fun getQuoteImages() : List<Uri> {
+        return backgroundImages.map {
+            it.toUri(BACKGROUND_FOLDER)
+        }
     }
 
     fun randomQuoteBackground() : Uri {

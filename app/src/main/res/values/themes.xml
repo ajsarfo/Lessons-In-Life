@@ -17,5 +17,6 @@
         <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
         <item name="android:colorBackground">@color/background</item>
         <item name="android:windowBackground">?android:attr/colorBackground</item>
+        <item name="android:fontFamily">@font/primary_font</item>
     </style>
 </resources>

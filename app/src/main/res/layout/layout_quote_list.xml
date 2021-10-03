@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="end"
-                    android:fontFamily="@font/quicksand_bold"
+                    android:fontFamily="@font/primary_font"
                     android:maxLines="4"
                     android:padding="10dp"
                     tools:text="Sometimes taking the red pill makes you feel better. Life is what happens when you are busy making other plans. Make hay whiles the sun shines"

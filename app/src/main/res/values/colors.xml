@@ -35,4 +35,18 @@
     <color name="category_color">@color/black</color>
 
     <color name="black_overlay">#66000000</color>
+
+    <color name="ripple_white">#96ffffff</color>
+    <color name="reader_text_color">#999999</color>
+    <color name="reader_text_highlightcolor">#ddd</color>
+
+    <color name="quote_bottom_pallete_color">#252525</color>
+    <color name="color27">#f4a14e</color>
+
+    <color name="textColor3">#999999</color>
+    <color name="color5">#55c4d0</color>
+    <color name="forth">#b1dc76</color>
+    <color name="fifth">#bd84d6</color>
+
+    <color name="image_preview_card_text_color">#4B346B</color>
 </resources>

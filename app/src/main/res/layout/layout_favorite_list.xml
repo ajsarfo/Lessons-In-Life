@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="end"
-                    android:fontFamily="@font/quicksand_bold"
+                    android:fontFamily="@font/primary_font"
                     android:maxLines="4"
                     android:padding="10dp"
                     android:text="@{binding.quote.message}"

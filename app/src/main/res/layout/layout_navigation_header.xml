@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_bold"
+        android:fontFamily="@font/primary_bold"
         android:text="@string/developer_indentification"
         android:textColor="@color/white"
         android:textSize="14sp" />
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0.7"
-        android:fontFamily="@font/raleway_bold"
+        android:fontFamily="@font/primary_bold"
         android:text="@string/company_email"
         android:textColor="@color/white"
         android:textSize="12sp" />

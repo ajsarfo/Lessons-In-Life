@@ -6,119 +6,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/background_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <View
-        android:id="@+id/view"
+    <FrameLayout
+        android:id="@+id/capture_frame"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:background="@drawable/transparent_dark_layer"
         app:layout_constraintBottom_toTopOf="@+id/main_banner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/background_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent_dark_layer" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <include
+        android:id="@+id/detail_bottom"
+        layout="@layout/layout_detail_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/capture_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
-            android:id="@+id/vp_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/view_pager_button"
-            android:clickable="true"
-            android:contentDescription="@string/change_background"
-            android:focusable="true"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_change_background"
-            app:tint="@color/view_pager_icon" />
+    </include>
 
-        <ImageButton
-            android:id="@+id/vp_font"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/view_pager_button"
-            android:clickable="true"
-            android:contentDescription="@string/change_font"
-            android:focusable="true"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_text_font"
-            app:tint="@color/view_pager_icon" />
-
-        <ImageButton
-            android:id="@+id/vp_fav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/view_pager_button"
-            android:clickable="true"
-            android:contentDescription="@string/bookmark"
-            android:focusable="true"
-            android:padding="10dp"
-            app:tint="@color/view_pager_icon"
-            tools:srcCompat="@drawable/ic_love_borderless" />
-
-        <ImageButton
-            android:id="@+id/vp_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/view_pager_button"
-            android:clickable="true"
-            android:contentDescription="@string/share_button"
-            android:focusable="true"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_share"
-            app:tint="@color/view_pager_icon" />
-
-        <ImageButton
-            android:id="@+id/vp_copy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/view_pager_button"
-            android:clickable="true"
-            android:contentDescription="@string/copy_button"
-            android:focusable="true"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_copy"
-            app:tint="@color/view_pager_icon" />
-    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/text_panel_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/detail_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="@color/color_primary"
+        tools:layout_height="100dp" />
 
     <com.appodeal.ads.BannerView
         android:id="@+id/main_banner"

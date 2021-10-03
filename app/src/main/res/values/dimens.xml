@@ -3,4 +3,12 @@
     <dimen name="category_image_size">64dp</dimen>
 
     <dimen name="nav_drawer_header_image_size">70dp</dimen>
+
+    <dimen name="preview_card_radius">8dp</dimen>
+    <dimen name="preview_card_elevation">2dp</dimen>
+    <dimen name="preview_image_card_size">68dp</dimen>
+    <dimen name="preview_image_icon_size">26dp</dimen>
+    <dimen name="preview_image_text_size">14sp</dimen>
+    <dimen name="preview_card_space">10dp</dimen>
+    <dimen name="preview_card_text_margin_bottom">4dp</dimen>
 </resources>

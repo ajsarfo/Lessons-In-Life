@@ -36,7 +36,7 @@
         android:id="@+id/no_favorite"
         android:layout_width="wrap_content"
         android:layout_height="86dp"
-        android:fontFamily="@font/quicksand_bold"
+        android:fontFamily="@font/primary_font"
         android:gravity="center"
         android:padding="16dp"
         android:text="No Favorite to show.\nAdd some favorites!!"

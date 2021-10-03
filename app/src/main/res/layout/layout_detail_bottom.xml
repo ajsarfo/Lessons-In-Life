@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_buttons_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/detail_bottom_icons_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:id="@+id/change_background"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/button_palette"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ripple_circle"
+                    android:padding="14dp"
+                    app:srcCompat="@drawable/set_background" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/show_panel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/show_panel_palette"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ripple_circle"
+                    android:padding="14dp"
+                    app:srcCompat="@drawable/ic_text_font" />
+            </LinearLayout>
+
+           <!--
+            <LinearLayout
+                android:id="@+id/image_chooser_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:onClick="@{() -> binding.listener.chooseBackground()}">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/button_choose_image_id"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ripple_circle"
+                    android:padding="14dp"
+                    app:srcCompat="@drawable/set_background" />
+            </LinearLayout>
+           -->
+
+            <LinearLayout
+                android:id="@+id/copy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ripple_circle"
+                    android:padding="14dp"
+                    app:srcCompat="@drawable/ic_copy"
+                    app:tint="#9F9F9F" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/download"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ripple_circle"
+                    android:padding="14dp"
+                    app:srcCompat="@drawable/ic_download" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/favorite_icon"
+                    tools:srcCompat="@drawable/ic_love_borderless"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ripple_circle"
+                    android:padding="14dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
