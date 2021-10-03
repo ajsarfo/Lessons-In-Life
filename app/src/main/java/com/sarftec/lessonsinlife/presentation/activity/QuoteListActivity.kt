@@ -2,10 +2,9 @@ package com.sarftec.lessonsinlife.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.appodeal.ads.Appodeal
 import com.sarftec.lessonsinlife.R
+import com.sarftec.lessonsinlife.advertisement.BannerManager
 import com.sarftec.lessonsinlife.databinding.ActivityQuoteListBinding
 import com.sarftec.lessonsinlife.presentation.adapter.ItemDecorator
 import com.sarftec.lessonsinlife.presentation.adapter.QuoteListAdapter
@@ -41,21 +40,23 @@ class QuoteListActivity : BaseActivity() {
         LoadingScreen(this)
     }
 
+    override fun canShowInterstitial(): Boolean = false
+
     override fun onResume() {
         super.onResume()
         listAdapter.resetQuoteFavorites(modifiedQuoteList.entries)
         modifiedQuoteList.clear()
     }
 
-    override fun onStart() {
-        super.onStart()
-        Appodeal.show(this, Appodeal.BANNER_VIEW)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        Appodeal.setBannerViewId(R.id.main_banner)
+        /*************** Admob Configuration ********************/
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_list),
+            binding.mainBanner
+        )
+        /**********************************************************/
         savedInstanceState?.let {
             loadingScreen.show()
         }

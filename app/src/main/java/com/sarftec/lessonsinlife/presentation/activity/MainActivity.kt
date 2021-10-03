@@ -15,9 +15,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
-import com.appodeal.ads.Appodeal
 import com.sarftec.lessonsinlife.R
-import com.sarftec.lessonsinlife.advertisement.InterstitialManager
+import com.sarftec.lessonsinlife.advertisement.AdCountManager
+import com.sarftec.lessonsinlife.advertisement.BannerManager
 import com.sarftec.lessonsinlife.databinding.ActivityMainBinding
 import com.sarftec.lessonsinlife.manager.AppReviewManager
 import com.sarftec.lessonsinlife.presentation.adapter.CategoryListAdapter
@@ -50,14 +50,6 @@ class MainActivity : BaseActivity() {
         LoadingScreen(this)
     }
 
-    private val interstitialManager by lazy {
-        InterstitialManager(
-            this,
-            networkManager,
-            listOf(1, 3, 4, 3)
-        )
-    }
-
     private val listAdapter by lazy {
         CategoryListAdapter(imageStore = imageStore) { categoryItem ->
             vibrate()
@@ -67,13 +59,12 @@ class MainActivity : BaseActivity() {
 
     private var drawerCallback: (() -> Unit)? = null
 
-    override fun onStart() {
-        super.onStart()
-        Appodeal.show(this, Appodeal.BANNER_VIEW)
+    override fun createAdCounterManager(): AdCountManager {
+        return AdCountManager(listOf(1, 3, 4, 3))
     }
 
     private fun navigateToQuoteList(categoryItem: CategoryItem) {
-        interstitialManager.showAd {
+        interstitialManager?.showAd {
             navigateTo(
                 QuoteListActivity::class.java,
                 bundle = Bundle().apply {
@@ -86,16 +77,13 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /************Appodeal Configuration*************/
-        Appodeal.setTesting(true)
-        Appodeal.setBannerViewId(R.id.main_banner)
-        Appodeal.initialize(
-            this,
-            getString(R.string.appodeal_id),
-            Appodeal.BANNER_VIEW or Appodeal.INTERSTITIAL
+        setContentView(binding.root)
+        /*************** Admob Configuration ********************/
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_main),
+            binding.mainBanner
         )
-        Appodeal.cache(this, Appodeal.INTERSTITIAL)
-        /***********************************************/
+        /**********************************************************/
         lifecycleScope.launchWhenCreated {
             savedInstanceState ?: editSettings(
                 AppReviewManager.App_START_UP_TIMES,
@@ -105,7 +93,6 @@ class MainActivity : BaseActivity() {
         savedInstanceState?.let {
             loadingScreen.show()
         }
-        setContentView(binding.root)
         statusColor(ContextCompat.getColor(this, R.color.main_status))
         setStatusBarBackgroundLight()
         setSupportActionBar(binding.toolbar)

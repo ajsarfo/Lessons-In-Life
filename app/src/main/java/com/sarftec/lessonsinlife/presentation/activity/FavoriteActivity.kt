@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sarftec.lessonsinlife.advertisement.InterstitialManager
+import com.sarftec.lessonsinlife.R
+import com.sarftec.lessonsinlife.advertisement.AdCountManager
+import com.sarftec.lessonsinlife.advertisement.BannerManager
 import com.sarftec.lessonsinlife.databinding.ActivityFavoriteListBinding
 import com.sarftec.lessonsinlife.presentation.adapter.FavoriteListAdapter
 import com.sarftec.lessonsinlife.presentation.adapter.ItemDecorator
@@ -21,18 +23,10 @@ class FavoriteActivity : BaseActivity() {
         ActivityFavoriteListBinding.inflate(layoutInflater)
     }
 
-    private val interstitialManager by lazy {
-        InterstitialManager(
-            this,
-            networkManager,
-            listOf(3, 2)
-        )
-    }
-
     private val listAdapter by lazy {
         FavoriteListAdapter(viewModel = viewModel) { quote ->
             vibrate()
-            interstitialManager.showAd {
+            interstitialManager?.showAd {
                 navigateTo(
                     QuoteDetailActivity::class.java,
                     bundle = Bundle().apply {
@@ -45,6 +39,9 @@ class FavoriteActivity : BaseActivity() {
         }
     }
 
+    override fun createAdCounterManager(): AdCountManager {
+        return AdCountManager(listOf(3,2))
+    }
     override fun onResume() {
         super.onResume()
         viewModel.resetQuoteFavorites()
@@ -53,6 +50,12 @@ class FavoriteActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        /*************** Admob Configuration ********************/
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_favorite),
+            binding.mainBanner
+        )
+        /**********************************************************/
         viewModel.fetch()
         binding.toolbar.setNavigationOnClickListener {
             vibrate()

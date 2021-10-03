@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">Lessons In Life</string>
 
+    <string name="admob_test_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_test_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+
+
+     <string name="admob_banner_main">ca-app-pub-3112561146803951/2976205139</string>
+     <string name="admob_banner_quote">ca-app-pub-3112561146803951/9649424693</string>
+     <string name="admob_banner_preview">ca-app-pub-3112561146803951/3091771111</string>
+     <string name="admob_banner_list">ca-app-pub-3112561146803951/7023261357</string>
+     <string name="admob_banner_favorite">ca-app-pub-3112561146803951/5952548804</string>
+     <string name="admob_banner_image">@string/admob_test_banner_id</string>
+
+     <string name="admob_interstitial_id">ca-app-pub-3112561146803951/3367103286</string>
+    
+
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
     <string name="share_button">share</string>

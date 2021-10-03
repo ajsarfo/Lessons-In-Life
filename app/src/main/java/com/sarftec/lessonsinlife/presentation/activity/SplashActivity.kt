@@ -12,6 +12,8 @@ import com.sarftec.lessonsinlife.databinding.ActivitySplashBinding
 
 class SplashActivity : BaseActivity() {
 
+     override fun canShowInterstitial() : Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySplashBinding.inflate(layoutInflater)

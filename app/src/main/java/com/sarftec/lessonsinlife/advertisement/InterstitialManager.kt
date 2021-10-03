@@ -1,78 +1,90 @@
 package com.sarftec.lessonsinlife.advertisement
 
-import android.app.Activity
-import com.appodeal.ads.Appodeal
-import com.appodeal.ads.InterstitialCallbacks
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.sarftec.lessonsinlife.manager.NetworkManager
 
-
 class InterstitialManager(
-    private val activity: Activity,
+    private val activity: AppCompatActivity,
+    private val interstitialId: String,
     private val networkManager: NetworkManager,
-    pattern: List<Int>
+    private val adCountManager: AdCountManager,
+    private val adRequest: AdRequest = AdRequest.Builder().build()
 ) {
-    private val adCounter = AdCountManager(pattern)
+
     private var callback: (() -> Unit)? = null
 
-    init {
-        config()
+    private var interstitialAd: InterstitialAd? = null
+
+    fun load() {
+        if (interstitialAd != null) return
+        InterstitialAd.load(activity, interstitialId, adRequest, getInterstitialLoadCallback())
     }
 
-    fun showAd(callback: (() -> Unit)?) {
-        this.callback = callback
-        if(!Appodeal.isPrecache(Appodeal.INTERSTITIAL)) Appodeal.cache(activity, Appodeal.INTERSTITIAL)
-        if (!networkManager.isNetworkAvailable() || !adCounter.canShow()) {
-            callback?.invoke()
-        } else {
-            if (Appodeal.isLoaded(Appodeal.INTERSTITIAL)) Appodeal.show(activity, Appodeal.INTERSTITIAL)
-            else callback?.invoke()
-        }
+    private fun callCallback() {
+        callback?.invoke()
+        this.callback = null
     }
 
-    fun customShowAd(callback: (() -> Unit)) {
-        this.callback = callback
-        if(!Appodeal.isPrecache(Appodeal.INTERSTITIAL)) Appodeal.cache(activity, Appodeal.INTERSTITIAL)
-        if (!networkManager.isNetworkAvailable()) {
-            callback.invoke()
-        } else {
-            if (Appodeal.isLoaded(Appodeal.INTERSTITIAL)) Appodeal.show(activity, Appodeal.INTERSTITIAL)
-            else callback.invoke()
-        }
-    }
-
-    private fun config() {
-        Appodeal.setInterstitialCallbacks(
-            object : InterstitialCallbacks {
-                override fun onInterstitialLoaded(p0: Boolean) {}
-
-                override fun onInterstitialFailedToLoad() {
+    fun showAd(callback: (() -> Unit)) {
+        if (networkManager.isNetworkAvailable()) {
+            this.callback = callback
+            when {
+                interstitialAd == null -> {
+                    load()
+                    callCallback()
+                    return
                 }
+                adCountManager.canShow() -> interstitialAd?.let {
+                    it.show(activity)
+                    load()
+                } ?: callCallback()
 
-                override fun onInterstitialShown() {}
-
-                override fun onInterstitialShowFailed() {
-                    callback?.invoke()
-                }
-
-                override fun onInterstitialClicked() {
-                    callback?.invoke()
-                }
-
-                override fun onInterstitialClosed() {
-                    callback?.invoke()
-                }
-
-                override fun onInterstitialExpired() {
-                    callback?.invoke()
-                }
+                else -> callCallback()
             }
-        )
+        } else callCallback()
     }
 
-    companion object {
-        fun runAppodealConfiguration() {
-            Appodeal.disableWriteExternalStoragePermissionCheck()
-            Appodeal.disableLocationPermissionCheck()
+    private fun getFullScreenCallback(): FullScreenContentCallback {
+        return object : FullScreenContentCallback() {
+
+            override fun onAdDismissedFullScreenContent() {
+                super.onAdDismissedFullScreenContent()
+                interstitialAd = null
+                callback?.invoke()
+                callback = null
+            }
+
+            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
+                super.onAdFailedToShowFullScreenContent(p0)
+                interstitialAd = null
+                Log.v("TAG", "Failed to show full screen content!!")
+                callCallback()
+            }
+        }
+    }
+
+    private fun getInterstitialLoadCallback(): InterstitialAdLoadCallback {
+        return object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(p0: LoadAdError) {
+                super.onAdFailedToLoad(p0)
+                Log.v("TAG", "Failed to load interstitial!!")
+                interstitialAd = null
+                callCallback()
+            }
+
+            override fun onAdLoaded(p0: InterstitialAd) {
+                super.onAdLoaded(p0)
+                interstitialAd = p0
+                Log.v("TAG", "Interstitial add  loaded successfully!!")
+                interstitialAd?.let { it.fullScreenContentCallback = getFullScreenCallback() }
+            }
         }
     }
 }

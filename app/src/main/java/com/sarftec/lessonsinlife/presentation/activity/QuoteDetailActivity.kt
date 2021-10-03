@@ -10,12 +10,11 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
-import com.appodeal.ads.Appodeal
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.sarftec.lessonsinlife.R
 import com.sarftec.lessonsinlife.advertisement.AdCountManager
-import com.sarftec.lessonsinlife.advertisement.InterstitialManager
+import com.sarftec.lessonsinlife.advertisement.BannerManager
 import com.sarftec.lessonsinlife.databinding.ActivityQuoteDetailBinding
 import com.sarftec.lessonsinlife.databinding.LayoutTextPanelBinding
 import com.sarftec.lessonsinlife.presentation.adapter.DetailImageAdapter
@@ -26,7 +25,6 @@ import com.sarftec.lessonsinlife.presentation.handler.ReadWriteHandler
 import com.sarftec.lessonsinlife.presentation.panel.TextPanelManager
 import com.sarftec.lessonsinlife.presentation.viewmodel.BackgroundOption
 import com.sarftec.lessonsinlife.presentation.viewmodel.QuoteDetailViewModel
-import com.sarftec.lessonsinlife.store.ImageStore
 import com.sarftec.lessonsinlife.utils.copy
 import com.sarftec.lessonsinlife.utils.toBitmap
 import com.sarftec.lessonsinlife.utils.toast
@@ -45,14 +43,6 @@ class QuoteDetailActivity : BaseActivity(), ColorPickerDialogListener {
         QuotePagerAdapter {
             textPanelManager.dismiss()
         }
-    }
-
-    private val interstitialManager by lazy {
-        InterstitialManager(
-            this,
-            networkManager,
-            listOf(2)
-        )
     }
 
     private lateinit var readWriteHandler: ReadWriteHandler
@@ -83,28 +73,29 @@ class QuoteDetailActivity : BaseActivity(), ColorPickerDialogListener {
 
     private val viewModel by viewModels<QuoteDetailViewModel>()
 
-    override fun onBackPressed() {
-        if(canShowInterstitialAd()) interstitialManager.customShowAd {
-            super.onBackPressed()
-        }
-        else super.onBackPressed()
+    override fun createAdCounterManager(): AdCountManager {
+        return addCounter
     }
-
-    override fun onStart() {
-        super.onStart()
-        Appodeal.show(this, Appodeal.BANNER_VIEW)
+    override fun onBackPressed() {
+        interstitialManager?.showAd {
+            super.onBackPressed()
+        } ?: let { super.onBackPressed() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedInstanceState ?: Appodeal.cache(this, Appodeal.INTERSTITIAL)
-        Appodeal.setBannerViewId(R.id.main_banner)
         window.apply {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             }
         }
         setContentView(binding.root)
+        /*************** Admob Configuration ********************/
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_quote),
+            binding.mainBanner
+        )
+        /**********************************************************/
         savedInstanceState ?: kotlin.run {
             intent.getBundleExtra(ACTIVITY_BUNDLE)?.let {
                 viewModel.setBundle(it)
@@ -210,7 +201,7 @@ class QuoteDetailActivity : BaseActivity(), ColorPickerDialogListener {
                     if (compressed) outputStream.flush()
                 }
             }
-            interstitialManager.showAd {
+            interstitialManager?.showAd {
                 navigateTo(
                     PreviewActivity::class.java,
                     bundle = Bundle().apply {
@@ -262,9 +253,5 @@ class QuoteDetailActivity : BaseActivity(), ColorPickerDialogListener {
 
     companion object {
         private val addCounter = AdCountManager(listOf(2, 5))
-
-        fun canShowInterstitialAd() : Boolean {
-            return addCounter.canShow()
-        }
     }
 }

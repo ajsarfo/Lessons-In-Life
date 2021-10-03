@@ -11,8 +11,8 @@ import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.annotation.MenuRes
 import androidx.core.content.ContextCompat
-import com.appodeal.ads.Appodeal
 import com.sarftec.lessonsinlife.R
+import com.sarftec.lessonsinlife.advertisement.BannerManager
 import com.sarftec.lessonsinlife.databinding.ActivityPreviewBinding
 import com.sarftec.lessonsinlife.presentation.handler.ReadWriteHandler
 import com.sarftec.lessonsinlife.presentation.viewmodel.PreviewViewModel
@@ -33,17 +33,16 @@ class PreviewActivity : BaseActivity() {
 
     private lateinit var permissionHandler: ReadWriteHandler
 
-    override fun onResume() {
-        super.onResume()
-        Appodeal.show(this, Appodeal.BANNER_VIEW)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        /*************** Admob Configuration ********************/
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_preview),
+            binding.mainBanner
+        )
+        /**********************************************************/
         statusColor(ContextCompat.getColor(this, R.color.color_primary))
-        //Show banner
-        Appodeal.setBannerViewId(R.id.main_banner)
         permissionHandler = ReadWriteHandler(this)
         intent.getBundleExtra(ACTIVITY_BUNDLE)?.let {
             viewModel.bundle = it

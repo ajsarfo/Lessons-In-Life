@@ -8,7 +8,10 @@ import android.view.View
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
 import com.sarftec.lessonsinlife.R
+import com.sarftec.lessonsinlife.advertisement.AdCountManager
+import com.sarftec.lessonsinlife.advertisement.InterstitialManager
 import com.sarftec.lessonsinlife.manager.NetworkManager
 import com.sarftec.lessonsinlife.store.ImageStore
 import javax.inject.Inject
@@ -20,6 +23,31 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @Inject
     lateinit var networkManager: NetworkManager
+
+    protected val adRequestBuilder: AdRequest by lazy {
+        AdRequest.Builder().build()
+    }
+
+    protected var interstitialManager: InterstitialManager? = null
+
+    protected open fun canShowInterstitial() : Boolean = true
+
+    protected open fun createAdCounterManager() : AdCountManager {
+        return AdCountManager(listOf(1, 4, 3))
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if(!canShowInterstitial()) return
+        interstitialManager = InterstitialManager(
+            this,
+            getString(R.string.admob_interstitial_id),
+            networkManager,
+            createAdCounterManager(),
+            adRequestBuilder
+        )
+        interstitialManager?.load()
+    }
 
     protected fun <T> navigateTo(
         klass: Class<T>,
