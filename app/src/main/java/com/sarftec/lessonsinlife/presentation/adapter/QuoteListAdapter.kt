@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lessonsinlife.database.model.Quote
 import com.sarftec.lessonsinlife.databinding.LayoutQuoteListBinding
+import com.sarftec.lessonsinlife.presentation.adapter.viewholder.QuoteListViewHolder
 import com.sarftec.lessonsinlife.presentation.viewmodel.QuoteListViewModel
 
 class QuoteListAdapter(

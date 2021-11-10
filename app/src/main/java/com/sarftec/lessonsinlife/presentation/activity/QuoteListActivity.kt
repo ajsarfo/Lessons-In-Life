@@ -25,7 +25,7 @@ class QuoteListActivity : BaseActivity() {
     private val listAdapter by lazy {
         QuoteListAdapter(viewModel = viewModel) { quote ->
             vibrate()
-            navigateTo(
+            navigateToWithBundle(
                 QuoteDetailActivity::class.java,
                 bundle = Bundle().apply {
                     putInt(CATEGORY_SELECTED_ID, quote.categoryId)

@@ -1,4 +1,4 @@
-package com.sarftec.lessonsinlife.presentation.adapter
+package com.sarftec.lessonsinlife.presentation.adapter.viewholder
 
 import android.net.Uri
 import androidx.appcompat.widget.AppCompatImageView

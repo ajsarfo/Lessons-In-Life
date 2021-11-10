@@ -11,4 +11,8 @@
     <dimen name="preview_image_text_size">14sp</dimen>
     <dimen name="preview_card_space">10dp</dimen>
     <dimen name="preview_card_text_margin_bottom">4dp</dimen>
+
+    <dimen name="picture_image_size">60dp</dimen>
+
+    <dimen name="picture_image_pager_icon_size">28dp</dimen>
 </resources>

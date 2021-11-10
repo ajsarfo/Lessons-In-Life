@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lessonsinlife.database.model.Quote
 import com.sarftec.lessonsinlife.databinding.LayoutPagerViewBinding
+import com.sarftec.lessonsinlife.presentation.adapter.viewholder.QuotePagerViewHolder
 import com.sarftec.lessonsinlife.presentation.viewmodel.PanelState
 
 class QuotePagerAdapter(

@@ -1,4 +1,4 @@
-package com.sarftec.lessonsinlife.presentation.adapter
+package com.sarftec.lessonsinlife.presentation.adapter.viewholder
 
 import android.graphics.Paint
 import android.graphics.Typeface
@@ -6,6 +6,7 @@ import android.view.Gravity
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lessonsinlife.database.model.Quote
 import com.sarftec.lessonsinlife.databinding.LayoutPagerViewBinding
+import com.sarftec.lessonsinlife.presentation.adapter.QuotePagerAdapter
 import com.sarftec.lessonsinlife.presentation.viewmodel.PanelState
 import com.sarftec.lessonsinlife.presentation.viewmodel.QuoteAlignment
 

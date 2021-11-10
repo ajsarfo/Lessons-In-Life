@@ -32,7 +32,9 @@
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/shape_read_font_a1.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/drawable/shape_read_font_a2.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_favorite_list.xml" value="0.21422101449275363" />
-        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_main.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_picture_image.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_picture_quote.xml" value="0.25" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_preview.xml" value="0.33" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_quote_detail.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/activity_quote_list.xml" value="0.21422101449275363" />
@@ -41,7 +43,14 @@
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_detail_image.xml" value="0.2033514492753623" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_detail_image_dialog.xml" value="0.2033514492753623" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_font_card.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_list_picture_image.xml" value="0.22" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_list_picture_image_recycler.xml" value="0.21829710144927536" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_list_picture_quote.xml" value="0.21296296296296297" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_list_picture_quote_recycler.xml" value="0.21296296296296297" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_pager_view.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_picture_image.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_picture_quote_detail.xml" value="0.21296296296296297" />
+        <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_picture_wallpaper.xml" value="0.25" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_quote_list.xml" value="0.2033514492753623" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/layout/layout_text_panel.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/Sarfo/StudioProjects/Lessons-In-Life/app/src/main/res/menu/main_menu.xml" value="0.23958333333333334" />

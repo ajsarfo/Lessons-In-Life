@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.sarftec.lessonsinlife.R
@@ -21,11 +22,16 @@ import com.sarftec.lessonsinlife.advertisement.BannerManager
 import com.sarftec.lessonsinlife.databinding.ActivityMainBinding
 import com.sarftec.lessonsinlife.manager.AppReviewManager
 import com.sarftec.lessonsinlife.presentation.adapter.CategoryListAdapter
+import com.sarftec.lessonsinlife.presentation.adapter.PictureQuoteAdapter
 import com.sarftec.lessonsinlife.presentation.dialog.LoadingScreen
 import com.sarftec.lessonsinlife.presentation.model.CategoryItem
+import com.sarftec.lessonsinlife.presentation.parcel.MainToPicture
 import com.sarftec.lessonsinlife.presentation.viewmodel.MainViewModel
 import com.sarftec.lessonsinlife.utils.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -51,13 +57,24 @@ class MainActivity : BaseActivity() {
     }
 
     private val listAdapter by lazy {
-        CategoryListAdapter(imageStore = imageStore) { categoryItem ->
+        CategoryListAdapter(imageStore, pictureImageAdapter) { categoryItem ->
             vibrate()
-           navigateToQuoteList(categoryItem)
+            navigateToQuoteList(categoryItem)
+        }
+    }
+
+    private val pictureImageAdapter by lazy {
+        PictureQuoteAdapter(imageStore) {
+            navigateToWithParcel(
+                PictureQuoteActivity::class.java,
+                parcel = MainToPicture(it.key)
+            )
         }
     }
 
     private var drawerCallback: (() -> Unit)? = null
+
+    private var pictureImageJob: Job? = null
 
     override fun createAdCounterManager(): AdCountManager {
         return AdCountManager(listOf(1, 3, 4, 3))
@@ -65,7 +82,7 @@ class MainActivity : BaseActivity() {
 
     private fun navigateToQuoteList(categoryItem: CategoryItem) {
         interstitialManager?.showAd {
-            navigateTo(
+            navigateToWithBundle(
                 QuoteListActivity::class.java,
                 bundle = Bundle().apply {
                     putInt(CATEGORY_SELECTED_ID, categoryItem.category.id)
@@ -75,6 +92,14 @@ class MainActivity : BaseActivity() {
         }
     }
 
+   /*
+    override fun onPause() {
+        super.onPause()
+        pictureImageJob?.cancel()
+    }
+    */
+
+    @ExperimentalPagingApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -99,20 +124,27 @@ class MainActivity : BaseActivity() {
         setupNavigationDrawer()
         setupNavigationView()
         viewModel.fetch()
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            setHasFixedSize(true)
-            adapter = listAdapter
+        setupCategoryRecyclerView()
+        lifecycleScope.launchWhenCreated {
+            viewModel.categoryUIFlow.collectLatest {
+                listAdapter.submitData(it)
+            }
         }
         viewModel.categories.observe(this@MainActivity) {
             loadingScreen.dismiss()
-            listAdapter.submit(it)
+
+            //listAdapter.submit(it)
+        }
+       pictureImageJob = lifecycleScope.launchWhenResumed {
+            viewModel.pictureImageFlow.collect {
+                pictureImageAdapter.submitData(it)
+            }
         }
         lifecycleScope.launchWhenCreated {
             configureNavSettings()
-           with(AppReviewManager(this@MainActivity)){
-               init()
-               triggerReview()
+            with(AppReviewManager(this@MainActivity)) {
+                init()
+                triggerReview()
             }
         }
     }
@@ -177,7 +209,7 @@ class MainActivity : BaseActivity() {
                 }
                 R.id.favorites -> {
                     onDrawerCallback {
-                        navigateTo(FavoriteActivity::class.java)
+                        navigateToWithBundle(FavoriteActivity::class.java)
                     }
                     true
                 }
@@ -225,5 +257,13 @@ class MainActivity : BaseActivity() {
                 override fun onDrawerStateChanged(newState: Int) {}
             }
         )
+    }
+
+    private fun setupCategoryRecyclerView() {
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            setHasFixedSize(true)
+            adapter = listAdapter
+        }
     }
 }

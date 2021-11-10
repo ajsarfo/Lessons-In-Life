@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import com.sarftec.lessonsinlife.database.json.JsonCategory
 import com.sarftec.lessonsinlife.database.json.JsonQuote
-import com.sarftec.lessonsinlife.database.model.Category
 import com.sarftec.lessonsinlife.utils.editSettings
 import com.sarftec.lessonsinlife.utils.readSettings
 import dagger.hilt.android.qualifiers.ApplicationContext

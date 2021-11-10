@@ -1,6 +1,7 @@
 package com.sarftec.lessonsinlife.repository
 
 import com.sarftec.lessonsinlife.repository.impl.CategoryRepositoryImpl
+import com.sarftec.lessonsinlife.repository.impl.ImageRepositoryImpl
 import com.sarftec.lessonsinlife.repository.impl.QuoteRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -19,4 +20,7 @@ abstract class Injection {
     @Binds
     @Singleton
     abstract fun categoryRepository(repositoryImpl: CategoryRepositoryImpl) : CategoryRepository
+
+    @Binds
+    abstract fun imageRepository(repository: ImageRepositoryImpl) : ImageRepository
 }

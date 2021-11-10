@@ -27,7 +27,7 @@ class FavoriteActivity : BaseActivity() {
         FavoriteListAdapter(viewModel = viewModel) { quote ->
             vibrate()
             interstitialManager?.showAd {
-                navigateTo(
+                navigateToWithBundle(
                     QuoteDetailActivity::class.java,
                     bundle = Bundle().apply {
                         putInt(CATEGORY_SELECTED_ID, quote.categoryId)

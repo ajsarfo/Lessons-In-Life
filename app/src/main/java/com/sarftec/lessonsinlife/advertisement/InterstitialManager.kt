@@ -33,8 +33,8 @@ class InterstitialManager(
     }
 
     fun showAd(callback: (() -> Unit)) {
+        this.callback = callback
         if (networkManager.isNetworkAvailable()) {
-            this.callback = callback
             when {
                 interstitialAd == null -> {
                     load()

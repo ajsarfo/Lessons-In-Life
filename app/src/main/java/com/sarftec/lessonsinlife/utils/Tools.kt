@@ -29,6 +29,23 @@ fun View.toBitmap(
 Note: The image should exist inside the cache directory
  */
 
+fun Context.shareImage(file: File) {
+    val adjustedUri =
+        FileProvider.getUriForFile(
+            this,
+            "$packageName.provider",
+            file
+        )
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        action = Intent.ACTION_SEND
+        type = "image/*"
+        putExtra(Intent.EXTRA_STREAM, adjustedUri)
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
+    startActivity(Intent.createChooser(intent, "Share On..."))
+}
+
 fun Context.shareImage(imageName: String) {
     val adjustedUri =
         FileProvider.getUriForFile(

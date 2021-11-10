@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lessonsinlife.databinding.LayoutDetailImageBinding
+import com.sarftec.lessonsinlife.presentation.adapter.viewholder.DetailImageViewHolder
 import com.sarftec.lessonsinlife.store.ImageStore
 
 class DetailImageAdapter(

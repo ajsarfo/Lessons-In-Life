@@ -202,7 +202,7 @@ class QuoteDetailActivity : BaseActivity(), ColorPickerDialogListener {
                 }
             }
             interstitialManager?.showAd {
-                navigateTo(
+                navigateToWithBundle(
                     PreviewActivity::class.java,
                     bundle = Bundle().apply {
                         putString("imageName", file.name)

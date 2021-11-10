@@ -1,4 +1,4 @@
-package com.sarftec.lessonsinlife.presentation.adapter
+package com.sarftec.lessonsinlife.presentation.adapter.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lessonsinlife.database.model.Quote

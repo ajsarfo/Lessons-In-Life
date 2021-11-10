@@ -1,5 +1,6 @@
 package com.sarftec.lessonsinlife.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,4 +16,7 @@ interface CategoryDao {
 
     @Query("select * from $CATEGORY_TABLE_NAME")
     suspend fun categories() : List<Category>
+
+    @Query("select * from $CATEGORY_TABLE_NAME")
+    fun getPagingSource() : PagingSource<Int, Category>
 }

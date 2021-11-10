@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.view.WindowInsetsController
 import android.view.WindowManager
@@ -49,7 +50,7 @@ abstract class BaseActivity : AppCompatActivity() {
         interstitialManager?.load()
     }
 
-    protected fun <T> navigateTo(
+    protected fun <T> navigateToWithBundle(
         klass: Class<T>,
         finish: Boolean = false,
         slideIn: Int = R.anim.slide_in_right,
@@ -62,6 +63,25 @@ abstract class BaseActivity : AppCompatActivity() {
         startActivity(intent)
         if (finish) finish()
         overridePendingTransition(slideIn, slideOut)
+    }
+
+    protected fun <T> navigateToWithParcel(
+        klass: Class<T>,
+        finish: Boolean = false,
+        slideIn: Int = R.anim.slide_in_right,
+        slideOut: Int = R.anim.slide_out_left,
+        parcel: Parcelable? = null
+    ) {
+        val intent = Intent(this, klass).also {
+            it.putExtra(ACTIVITY_BUNDLE, parcel)
+        }
+        startActivity(intent)
+        if (finish) finish()
+        overridePendingTransition(slideIn, slideOut)
+    }
+
+    protected fun <T : Parcelable> getParcelFromIntent(intent: Intent) : T? {
+        return intent.getParcelableExtra(ACTIVITY_BUNDLE)
     }
 
     override fun onBackPressed() {

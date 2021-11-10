@@ -5,6 +5,7 @@ plugins {
     id 'kotlinx-serialization'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -15,8 +16,8 @@ android {
         applicationId "com.sarftec.lessonsinlife"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "2"
 
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
@@ -79,11 +80,18 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
+    /* coroutines support for firebase operations */
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
+
     //Dependencies for room
     def room_version = "2.3.0-rc01"
     implementation "androidx.room:room-runtime:2.4.0-alpha04"
     implementation "androidx.room:room-ktx:2.4.0-alpha04"
     kapt "androidx.room:room-compiler:$room_version"
+
+    def paging_version = "3.0.1" //current version at the time
+    implementation "androidx.paging:paging-runtime:$paging_version"
 
     //Dependencies for kotlin serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"

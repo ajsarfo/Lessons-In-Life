@@ -9,6 +9,6 @@ import com.sarftec.lessonsinlife.database.model.Quote
 
 @Database(entities = [Quote::class, Category::class], version = 1, exportSchema = false)
 abstract class Database : RoomDatabase() {
-    abstract fun quoteDao() : QuoteDao
-    abstract fun categoryDao() : CategoryDao
-}
+    abstract fun quoteDao(): QuoteDao
+    abstract fun categoryDao(): CategoryDao
+   }

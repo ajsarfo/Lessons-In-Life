@@ -5,14 +5,18 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import androidx.lifecycle.lifecycleScope
 import com.sarftec.lessonsinlife.R
+import com.sarftec.lessonsinlife.database.Database
 import com.sarftec.lessonsinlife.databinding.ActivitySplashBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashActivity : BaseActivity() {
 
-     override fun canShowInterstitial() : Boolean = false
+    override fun canShowInterstitial(): Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +39,13 @@ class SplashActivity : BaseActivity() {
         }
         binding.splashImage.setBackgroundColor(item.backgroundColor)
         statusColor(item.backgroundColor)
-        Handler(Looper.getMainLooper()).postDelayed(
-            {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            },
-            3500L
-        )
+        lifecycleScope.launchWhenCreated {
+            delay(3500L)
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
+        }
     }
 
     private class SplashManager(private val context: Context) {
